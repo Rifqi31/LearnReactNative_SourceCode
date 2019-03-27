@@ -8,7 +8,9 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "faker": "^4.1.0",
+    "glamorous-native": "^1.4.2",
     "react": "16.8.3",
     "react-native": "0.59.2",
     "react-native-elements": "^1.1.0",

@@ -1,6 +1,6 @@
-import React, {Component, PureComponent} from "react";
+import React, {PureComponent} from "react";
 import {AppRegistry, FlatList, View, ActivityIndicator, TouchableOpacity} from "react-native";
-import { ListItem, SearchBar, Header } from 'react-native-elements';
+import { ListItem } from 'react-native-elements';
 
 export default class LearnFlatList extends PureComponent {
     // create constructor
