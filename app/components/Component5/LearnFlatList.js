@@ -1,8 +1,8 @@
-import React, {Component} from "react";
-import {AppRegistry, FlatList, View, ActivityIndicator} from "react-native";
-import { ListItem, SearchBar } from 'react-native-elements';
+import React, {Component, PureComponent} from "react";
+import {AppRegistry, FlatList, View, ActivityIndicator, TouchableOpacity} from "react-native";
+import { ListItem, SearchBar, Header } from 'react-native-elements';
 
-export default class LearnFlatList extends Component {
+export default class LearnFlatList extends PureComponent {
     // create constructor
     constructor(props){
         super(props);
@@ -110,12 +110,14 @@ export default class LearnFlatList extends Component {
                         data={this.state.data}
                         renderItem={({ item }) => (
                             // show the data
-                            <ListItem
-                              leftAvatar={{ source: { uri: item.picture.thumbnail } }}
-                              title={`${item.name.first} ${item.name.last}`}
-                              subtitle={item.email}
-                              containerStyle={{ borderTopWidth: 0, borderBottomWidth: 0 }}
-                            />
+                            <TouchableOpacity>
+                                <ListItem
+                                leftAvatar={{ source: { uri: item.picture.thumbnail } }}
+                                title={`${item.name.first} ${item.name.last}`}
+                                subtitle={item.email}
+                                containerStyle={{ borderTopWidth: 0, borderBottomWidth: 0 }}
+                                />
+                            </TouchableOpacity>
                           )}
                           keyExtractor={item => item.login.uuid}
                           
@@ -139,8 +141,7 @@ export default class LearnFlatList extends Component {
                         //   maxToRenderPerBatch={7}
                         //   // set value on the screen in every device
                         //   initialNumToRender={7}
-                />
-               
+                    />
         );
     }
 }
