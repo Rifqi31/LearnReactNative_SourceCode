@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {AppRegistry, FlatList, View, ActivityIndicator} from "react-native";
-import { ListItem, SearchBar } from 'react-native-elements'
-// import { Avatar } from "react-native-elements";
+import { ListItem, SearchBar } from 'react-native-elements';
 
 export default class LearnFlatList extends Component {
     // create constructor
@@ -85,8 +84,8 @@ export default class LearnFlatList extends Component {
       };
 
     // renderHeader = () => {
-        //     return <SearchBar placeholder="Type Here..." lightTheme round />;
-        // };
+    //         return <SearchBar placeholder="Type Here..." lightTheme round />;
+    //     };
 
     renderFooter = () => {
         if (!this.state.loading) return null;
@@ -123,7 +122,7 @@ export default class LearnFlatList extends Component {
                           
                           // for separator
                           ItemSeparatorComponent={this.renderSeparator}
-                          // ListHeaderComponent={this.renderHeader}
+                        //   ListHeaderComponent={this.renderHeader}
                           ListFooterComponent={this.renderFooter}
                           // pull down refresh
                           onRefresh={this.handleRefresh}
