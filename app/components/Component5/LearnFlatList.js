@@ -29,7 +29,8 @@ export default class LearnFlatList extends Component {
         const {page, seed} = this.state
         const url = `https://randomuser.me/api/?seed=${seed}&page=${page}&results=10`;
         this.setState({ loading : true })
-        fetch(url)
+        setTimeout(() => {
+            fetch(url)
             .then(response => response.json())
             .then(response => {
                 this.setState({
@@ -43,23 +44,7 @@ export default class LearnFlatList extends Component {
             .catch(error => {
                 this.setState({ error, loading: false, refreshing: false });
             });
-
-        // setTimeout(() => {
-        //     fetch(url)
-        //     .then(response => response.json())
-        //     .then(response => {
-        //         this.setState({
-        //             // data: page === 1 ? response.results : [...this.state.data, ...response.results],
-        //             data: [...this.state.data, ...response.results],
-        //             error: response.error || null,
-        //             loading: false,
-        //             refreshing: false
-        //         });
-        //     })
-        //     .catch(error => {
-        //         this.setState({ error, loading: false, refreshing: false });
-        //     });
-        // }, 1500)
+        }, 1500)
     };
 
      // pull to refresh
