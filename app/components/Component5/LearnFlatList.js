@@ -27,25 +27,9 @@ export default class LearnFlatList extends Component {
 
     makeRemoteRequest = () => {
         const {page, seed} = this.state
-        const url = `https://randomuser.me/api/?seed=${seed}&page=${page}&results=20`;
+        const url = `https://randomuser.me/api/?seed=${seed}&page=${page}&results=10`;
         this.setState({ loading : true })
-        // fetch(url)
-        //     .then(response => response.json())
-        //     .then(response => {
-        //         this.setState({
-        //             // data: page === 1 ? response.results : [...this.state.data, ...response.results],
-        //             data: [...this.state.data, ...response.results],
-        //             error: response.error || null,
-        //             loading: false,
-        //             refreshing: false
-        //         });
-        //     })
-        //     .catch(error => {
-        //         this.setState({ error, loading: false, refreshing: false });
-        //     });
-
-        setTimeout(() => {
-            fetch(url)
+        fetch(url)
             .then(response => response.json())
             .then(response => {
                 this.setState({
@@ -59,7 +43,23 @@ export default class LearnFlatList extends Component {
             .catch(error => {
                 this.setState({ error, loading: false, refreshing: false });
             });
-        }, 1500)
+
+        // setTimeout(() => {
+        //     fetch(url)
+        //     .then(response => response.json())
+        //     .then(response => {
+        //         this.setState({
+        //             // data: page === 1 ? response.results : [...this.state.data, ...response.results],
+        //             data: [...this.state.data, ...response.results],
+        //             error: response.error || null,
+        //             loading: false,
+        //             refreshing: false
+        //         });
+        //     })
+        //     .catch(error => {
+        //         this.setState({ error, loading: false, refreshing: false });
+        //     });
+        // }, 1500)
     };
 
      // pull to refresh
@@ -133,9 +133,10 @@ export default class LearnFlatList extends Component {
                               containerStyle={{ borderTopWidth: 0, borderBottomWidth: 0 }}
                             />
                           )}
+                          keyExtractor={item => item.login.uuid}
                           
-                          // for key
-                          keyExtractor={item => item.email}
+                          
+                          // for separator
                           ItemSeparatorComponent={this.renderSeparator}
                           // ListHeaderComponent={this.renderHeader}
                           ListFooterComponent={this.renderFooter}
@@ -146,6 +147,14 @@ export default class LearnFlatList extends Component {
                           onEndReached={this.handleLoadMore}
                           onThreshold={0}
                           //onEndReachedThreshold={0}
+
+                          // performance  
+                        //   // for memory friendly
+                        //   removeClippedSubviews={true}
+                        //   // for render per batch
+                        //   maxToRenderPerBatch={7}
+                        //   // set value on the screen in every device
+                        //   initialNumToRender={7}
                 />
                
         );
