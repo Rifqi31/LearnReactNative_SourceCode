@@ -26,7 +26,7 @@ export default class LearnFlatList extends PureComponent {
 
     makeRemoteRequest = () => {
         const {page, seed} = this.state
-        const url = `https://randomuser.me/api/?seed=${seed}&page=${page}&results=10`;
+        const url = `https://randomuser.me/api/?seed=${seed}&page=${page}&results=20`;
         this.setState({ loading : true })
         setTimeout(() => {
             fetch(url)
