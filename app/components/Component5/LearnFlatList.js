@@ -136,7 +136,7 @@ export default class LearnFlatList extends PureComponent {
 
                           // performance  
                         //   // for memory friendly
-                        //   removeClippedSubviews={true}
+                        removeClippedSubviews={false}
                         //   // for render per batch
                         //   maxToRenderPerBatch={7}
                         //   // set value on the screen in every device
